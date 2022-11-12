@@ -32,7 +32,7 @@
             添加
           </el-button>
           <el-button
-            v-if="node.level <= 2"
+            v-if="node.level"
             type="text"
             size="mini"
             @click="edit(data)"
