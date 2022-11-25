@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-upload
-      action="http://gulimall.oss-cn-shanghai.aliyuncs.com"
+      action="http://upload-z2.qiniup.com"
       :data="dataObj"
       list-type="picture-card"
       :file-list="fileList"
@@ -36,13 +36,17 @@ export default {
   data() {
     return {
       dataObj: {
-        policy: "",
-        signature: "",
-        key: "",
-        ossaccessKeyId: "",
-        dir: "",
-        host: "",
-        uuid: ""
+        // policy: "",
+        // signature: "",
+        // key: "",
+        // ossaccessKeyId: "",
+        // dir: "",
+        // host: "",
+        // uuid: ""
+        token: '',
+        key: '',
+        dir: '',
+        host: '',
       },
       dialogVisible: false,
       dialogImageUrl: null
@@ -79,11 +83,16 @@ export default {
       return new Promise((resolve, reject) => {
         policy()
           .then(response => {
-            console.log("这是什么${filename}");
-            _self.dataObj.policy = response.data.policy;
-            _self.dataObj.signature = response.data.signature;
-            _self.dataObj.ossaccessKeyId = response.data.accessid;
-            _self.dataObj.key = response.data.dir + "/"+getUUID()+"_${filename}";
+            // console.log("这是什么${filename}");
+            // _self.dataObj.policy = response.data.policy;
+            // _self.dataObj.signature = response.data.signature;
+            // _self.dataObj.ossaccessKeyId = response.data.accessid;
+            // _self.dataObj.key = response.data.dir + "/"+getUUID()+"_${filename}";
+            // _self.dataObj.dir = response.data.dir;
+            // _self.dataObj.host = response.data.host;
+            console.log("响应的数据",response);
+            _self.dataObj.token = response.data.policy
+            _self.dataObj.key = response.data.dir +getUUID()+'_'+file.name;
             _self.dataObj.dir = response.data.dir;
             _self.dataObj.host = response.data.host;
             resolve(true);
