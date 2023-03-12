@@ -1,3 +1,4 @@
+![image](https://jandan.net/ofk.gif)
 ### 为了项目的长远发展，renren-fast-vue已迁移到 【[renren-ui](https://gitee.com/renrenio/renren-ui)】里面，以后会在renren-ui里面进行更新维护，感谢支持！ :smiley: 
 <br> 
 
